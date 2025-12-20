@@ -25,7 +25,8 @@ const Projects = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="glass-card rounded-2xl p-6 group flex flex-col hover:bg-white/[0.03]"
+                            onClick={() => project.live !== "#" && window.open(project.live, "_blank", "noopener,noreferrer")}
+                            className={`glass-card rounded-2xl p-6 group flex flex-col hover:bg-white/[0.03] transition-all duration-300 ${project.live !== "#" ? 'cursor-pointer' : ''}`}
                         >
                             <div className="flex justify-between items-start mb-6">
                                 <div className="p-3 bg-accent/10 rounded-xl text-accent">
@@ -36,6 +37,7 @@ const Projects = () => {
                                         href={project.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        onClick={(e) => e.stopPropagation()}
                                         className="text-secondary hover:text-white transition-colors"
                                     >
                                         <Github size={20} />
@@ -45,6 +47,7 @@ const Projects = () => {
                                             href={project.live}
                                             target="_blank"
                                             rel="noopener noreferrer"
+                                            onClick={(e) => e.stopPropagation()}
                                             className="text-secondary hover:text-white transition-colors"
                                         >
                                             <ExternalLink size={20} />

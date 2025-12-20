@@ -43,14 +43,14 @@ export const PROJECTS = [
         description: "Real-time chat app using MERN stack and Socket.IO for bi-directional communication.",
         tech: ["React", "Express", "Tailwind", "MongoDB", "Socket.IO"],
         link: "#",
-        live: "#"
+        live: "https://chatify-nu9e.onrender.com"
     },
     {
         title: "Agro-Connect",
         description: "E-commerce platform linking farmers and consumers directly with secure transactions.",
         tech: ["React", "SpringBoot", "MongoDB"],
         link: "#",
-        live: "#"
+        live: "https://agro-connect-chatbot.vercel.app/"
     },
     {
         title: "Credit Card Management",
