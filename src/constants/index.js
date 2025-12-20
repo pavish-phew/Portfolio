@@ -49,8 +49,8 @@ export const PROJECTS = [
     },
     {
         title: "Agro-Connect",
-        description: "An integrated e-commerce ecosystem connecting farmers directly with consumers. Built with a Spring Boot backend and React frontend, featuring secure transaction processing and a specialized chatbot to assist users in agricultural trade.",
-        tech: ["React", "SpringBoot", "MongoDB"],
+        description: "An integrated e-commerce ecosystem connecting farmers directly with consumers. Built with a Express backend and React frontend, featuring secure transaction processing and a specialized chatbot to assist users in agricultural trade.",
+        tech: ["React", "Express", "Tailwind", "Node", "MongoDB"],
         link: "https://github.com/pavish-phew/AgroConnect-chatbot",
         live: "https://agro-connect-chatbot.vercel.app/"
     },

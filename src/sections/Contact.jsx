@@ -117,6 +117,7 @@ const Contact = () => {
                                     required
                                     disabled={isSubmitting}
                                     className="w-full bg-primary border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    placeholder="Enter your name..."
                                 />
                             </div>
 
@@ -130,6 +131,7 @@ const Contact = () => {
                                     required
                                     disabled={isSubmitting}
                                     className="w-full bg-primary border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    placeholder="Enter your email..."
                                 />
                             </div>
 

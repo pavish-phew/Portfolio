@@ -12,16 +12,26 @@ import Contact from './sections/Contact';
 
 function App() {
     return (
-        <Layout>
-            <Toaster position="top-center" reverseOrder={false} />
-            <Hero />
-            <About />
-            <Skills />
-            <Projects />
-            <Education />
-            <Resume />
-            <Contact />
-        </Layout>
+        <>
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+                toastOptions={{
+                    style: {
+                        zIndex: 9999,
+                    },
+                }}
+            />
+            <Layout>
+                <Hero />
+                <About />
+                <Skills />
+                <Projects />
+                <Education />
+                <Resume />
+                <Contact />
+            </Layout>
+        </>
     );
 }
 
