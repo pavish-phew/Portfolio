@@ -23,12 +23,12 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-primary/80 backdrop-blur-md border-b border-white/5' : 'bg-transparent'}`}>
+        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-primary/80 backdrop-blur-md border-b border-white/5' : 'bg-transparent'}`} aria-label="Main Navigation">
             <div className="container mx-auto px-6 h-16 flex justify-between items-center">
-                <a href="#" className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-                    <span className="text-accent">&lt;</span>
+                <a href="#" className="text-xl font-bold text-white tracking-tight flex items-center gap-2" aria-label="Back to top">
+                    <span className="text-accent" aria-hidden="true">&lt;</span>
                     Pavish
-                    <span className="text-accent">/&gt;</span>
+                    <span className="text-accent" aria-hidden="true">/&gt;</span>
                 </a>
 
                 {/* Desktop Menu */}
@@ -40,14 +40,19 @@ const Navbar = () => {
                             className="text-sm font-medium text-slate-300 hover:text-white transition-colors relative group"
                         >
                             {item.label}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" />
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" aria-hidden="true" />
                         </a>
                     ))}
                 </div>
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden">
-                    <button onClick={() => setIsOpen(!isOpen)} className="text-white">
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="text-white hover:text-accent transition-colors"
+                        aria-expanded={isOpen}
+                        aria-label={isOpen ? "Close menu" : "Open menu"}
+                    >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>

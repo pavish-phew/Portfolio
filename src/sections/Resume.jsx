@@ -34,6 +34,7 @@ const Resume = () => {
                             className="text-3xl md:text-5xl font-bold mb-6 text-white"
                         >
                             Grab my <span className="text-accent">Resume</span>
+                            
                         </motion.h2>
 
                         <motion.p

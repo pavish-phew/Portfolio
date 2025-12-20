@@ -1,18 +1,58 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, MapPin } from 'lucide-react';
+import { Send, Mail, MapPin, Loader2 } from 'lucide-react';
+import { toast } from 'react-hot-toast';
+import { PROFILE_DATA } from '../constants';
 
 const Contact = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: ''
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
-        alert('Thank you for your message! (Demo purposes only)');
+
+        if (PROFILE_DATA.web3FormsKey === "YOUR_WEB3FORMS_ACCESS_KEY_HERE") {
+            toast.error('Please configure your Web3Forms Access Key in constants/index.js');
+            return;
+        }
+
+        setIsSubmitting(true);
+        const loadingToast = toast.loading('Sending your message...');
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    access_key: PROFILE_DATA.web3FormsKey,
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                    subject: `New Portfolio Message from ${formData.name}`,
+                    from_name: "Portfolio Contact Form",
+                }),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                toast.success('Mail sent successfully!', { id: loadingToast });
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                toast.error(result.message || 'Something went wrong. Please try again.', { id: loadingToast });
+            }
+        } catch (error) {
+            toast.error('Failed to send message. Please check your connection.', { id: loadingToast });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (e) => {
@@ -30,7 +70,8 @@ const Contact = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Let's work together.</h2>
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Let's work together.</h2>
+
                         <p className="text-slate-300 text-lg mb-12 leading-relaxed">
                             I'm always open to discussing product design work or partnership opportunities.
                         </p>
@@ -74,7 +115,8 @@ const Contact = () => {
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
-                                    className="w-full bg-primary border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all"
+                                    disabled={isSubmitting}
+                                    className="w-full bg-primary border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
 
@@ -86,7 +128,8 @@ const Contact = () => {
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
-                                    className="w-full bg-primary border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all"
+                                    disabled={isSubmitting}
+                                    className="w-full bg-primary border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                                 />
                             </div>
 
@@ -98,17 +141,28 @@ const Contact = () => {
                                     onChange={handleChange}
                                     required
                                     rows="4"
-                                    className="w-full bg-primary border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none"
+                                    disabled={isSubmitting}
+                                    className="w-full bg-primary border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                                     placeholder="Tell me about your project..."
                                 />
                             </div>
 
                             <button
                                 type="submit"
-                                className="w-full bg-accent text-white font-bold py-4 rounded-xl hover:bg-accent-dark transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-accent/20"
+                                disabled={isSubmitting}
+                                className={`w-full bg-accent text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-accent/20 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-accent-dark'}`}
                             >
-                                Send Message
-                                <Send size={18} />
+                                {isSubmitting ? (
+                                    <>
+                                        Sending...
+                                        <Loader2 size={18} className="animate-spin" />
+                                    </>
+                                ) : (
+                                    <>
+                                        Send Message
+                                        <Send size={18} />
+                                    </>
+                                )}
                             </button>
                         </form>
                     </motion.div>

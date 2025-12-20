@@ -1,4 +1,5 @@
 import React from 'react';
+import { Toaster } from 'react-hot-toast';
 import Layout from './components/Layout';
 import Hero from './sections/Hero';
 import About from './sections/About';
@@ -12,6 +13,7 @@ import Contact from './sections/Contact';
 function App() {
     return (
         <Layout>
+            <Toaster position="top-center" reverseOrder={false} />
             <Hero />
             <About />
             <Skills />

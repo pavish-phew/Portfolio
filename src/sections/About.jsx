@@ -12,7 +12,8 @@ const About = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">About Me</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">About Me</h2>
+                        <div className="w-20 h-1 bg-accent rounded-full mx-auto mb-8" />
                         <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-12">
                             {PROFILE_DATA.about}
                         </p>

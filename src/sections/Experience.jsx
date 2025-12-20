@@ -6,14 +6,15 @@ const Experience = () => {
     return (
         <section id="experience" className="py-24">
             <div className="container mx-auto px-6">
-                <motion.h2
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold text-white mb-16 text-center"
+                    className="text-center mb-16"
                 >
-                    Professional Journey
-                </motion.h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Professional Journey</h2>
+                    <div className="w-20 h-1 bg-accent rounded-full mx-auto" />
+                </motion.div>
 
                 <div className="max-w-3xl mx-auto">
                     {EXPERIENCES.map((exp, index) => (

@@ -13,6 +13,7 @@ const Skills = () => {
                     className="mb-16 text-center"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Technical Skills</h2>
+                    <div className="w-20 h-1 bg-accent rounded-full mx-auto" />
                     <p className="text-slate-300 max-w-2xl mx-auto">
                        
                     </p>

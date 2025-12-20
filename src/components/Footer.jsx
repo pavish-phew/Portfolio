@@ -21,6 +21,7 @@ const Footer = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-secondary hover:text-white transition-colors transform hover:-translate-y-1 duration-300"
+                            aria-label={`Visit my ${item.name}`}
                         >
                             <item.icon size={24} />
                         </a>

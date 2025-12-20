@@ -9,7 +9,9 @@ export const PROFILE_DATA = {
         { name: "GitHub", icon: Github, url: "https://github.com/pavish-phew" },
         { name: "LinkedIn", icon: Linkedin, url: "https://linkedin.com/in/pavish-phew" },
         { name: "Email", icon: Mail, url: "mailto:pavishs127@gmail.com" },
-    ]
+    ],
+    contactEmail: "pavishs127@gmail.com",
+    web3FormsKey: "7317d235-7a1a-4171-b099-6ff79059e310" // Get yours at https://web3forms.com/
 };
 
 export const EXPERIENCES = [
@@ -40,21 +42,21 @@ export const SKILLS = [
 export const PROJECTS = [
     {
         title: "Real-Time Chat Application",
-        description: "Real-time chat app using MERN stack and Socket.IO for bi-directional communication.",
+        description: "A full-featured real-time messaging platform using Socket.IO for instant bi-directional communication. Features include JWT authentication, persistent chat history with MongoDB, and a responsive UI built with Tailwind CSS.",
         tech: ["React", "Express", "Tailwind", "MongoDB", "Socket.IO"],
-        link: "#",
+        link: "https://github.com/pavish-phew/chatify",
         live: "https://chatify-nu9e.onrender.com"
     },
     {
         title: "Agro-Connect",
-        description: "E-commerce platform linking farmers and consumers directly with secure transactions.",
+        description: "An integrated e-commerce ecosystem connecting farmers directly with consumers. Built with a Spring Boot backend and React frontend, featuring secure transaction processing and a specialized chatbot to assist users in agricultural trade.",
         tech: ["React", "SpringBoot", "MongoDB"],
-        link: "#",
+        link: "https://github.com/pavish-phew/AgroConnect-chatbot",
         live: "https://agro-connect-chatbot.vercel.app/"
     },
     {
         title: "Credit Card Management",
-        description: "System for managing credit cards with secure authentication and CRUD operations.",
+        description: "A secure financial dashboard for managing credit card operations. Implements full CRUD functionality for card management, transaction tracking, and user authentication with a focus on data integrity and security.",
         tech: ["React", "Node.js", "Express", "MySQL"],
         link: "#",
         live: "#"
