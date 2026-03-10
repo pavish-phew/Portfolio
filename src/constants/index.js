@@ -4,7 +4,7 @@ export const PROFILE_DATA = {
     name: "Pavish S",
     role: "Full Stack Developer",
     tagline: "Building scalable, user-friendly web applications that solve real-world problems.",
-    about: "Turning complex problems into simple, reliable web applications. Focused on building products that are clean, scalable, and user-centric.",
+    about: "Turning complex problems into simple, reliable web applications. Focused on building products that are clean, scalable, and user-friendly.",
     social: [
         { name: "GitHub", icon: Github, url: "https://github.com/pavish-phew" },
         { name: "LinkedIn", icon: Linkedin, url: "https://linkedin.com/in/pavish-phew" },

@@ -4,19 +4,17 @@ import { SKILLS } from '../constants';
 
 const Skills = () => {
     return (
-        <section id="skills" className="py-24 bg-white/[0.02]">
-            <div className="container mx-auto px-6">
+        <section id="skills" className="py-24 relative overflow-hidden">
+             
+            <div className="container mx-auto px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-16 text-center"
+                    className="mb-16 text-center lg:text-left"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Technical Skills</h2>
-                    <div className="w-20 h-1 bg-accent rounded-full mx-auto" />
-                    <p className="text-slate-300 max-w-2xl mx-auto">
-                       
-                    </p>
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tighter uppercase">Technical Skills</h2>
+                    <div className="w-16 h-1 bg-accent lg:mx-0 mx-auto" />
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -27,16 +25,16 @@ const Skills = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="bg-primary-light border border-white/5 rounded-2xl p-6 hover:border-accent/30 transition-colors"
+                            className="bg-primary-light/40 backdrop-blur-lg border border-white/10 shadow-xl p-8 hover:bg-white/5 transition-colors duration-300 group"
                         >
-                            <h3 className="text-lg font-semibold text-white mb-4 border-b border-white/5 pb-2">
+                            <h3 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4 group-hover:text-accent transition-colors tracking-wide uppercase">
                                 {category.category}
                             </h3>
                             <div className="flex flex-wrap gap-2">
                                 {category.items.map((skill) => (
                                     <span
                                         key={skill}
-                                        className="px-3 py-1.5 bg-white/5 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-colors cursor-default"
+                                        className="px-3 py-1.5 bg-black/40 backdrop-blur-md border border-white/10 font-mono text-xs text-secondary hover:text-white hover:border-accent transition-all cursor-default uppercase tracking-wider"
                                     >
                                         {skill}
                                     </span>

@@ -4,19 +4,20 @@ import { EDUCATION } from '../constants';
 
 const Education = () => {
     return (
-        <section id="education" className="py-24">
-            <div className="container mx-auto px-6">
+        <section id="education" className="py-24 relative overflow-hidden">
+             
+            <div className="container mx-auto px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center lg:text-left mb-16"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Education</h2>
-                    <div className="w-20 h-1 bg-accent rounded-full mx-auto" />
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tighter uppercase">Education</h2>
+                    <div className="w-16 h-1 bg-accent lg:mx-0 mx-auto" />
                 </motion.div>
 
-                <div className="max-w-3xl mx-auto">
+                <div className="max-w-3xl mx-auto lg:mx-0">
                     {EDUCATION.map((edu, index) => (
                         <motion.div
                             key={index}
@@ -24,19 +25,19 @@ const Education = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="relative pl-8 pb-12 last:pb-0 border-l border-white/10 group"
+                            className="relative pl-10 pb-16 last:pb-0 border-l border-white/10 group hover:border-accent transition-colors duration-500"
                         >
-                            {/* Timeline Dot */}
-                            <div className="absolute left-[-5px] top-0 w-2.5 h-2.5 rounded-full bg-secondary group-hover:bg-accent transition-colors duration-300 ring-4 ring-primary" />
+                            {/* Timeline Square */}
+                            <div className="absolute left-[-5px] top-0 w-2.5 h-2.5 bg-black/40 backdrop-blur-md border border-white/10 group-hover:border-accent group-hover:bg-accent transition-all duration-300" />
 
-                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
-                                <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors">{edu.degree}</h3>
-                                <span className="text-sm font-mono text-accent/80 bg-accent/10 px-2 py-0.5 rounded w-fit">{edu.duration}</span>
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-4 mt-[-6px]">
+                                <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-all duration-300 uppercase tracking-wide">{edu.degree}</h3>
+                                <span className="text-xs font-mono text-secondary bg-black/40 backdrop-blur-md border border-white/10 px-3 py-1 uppercase tracking-wider">{edu.duration}</span>
                             </div>
 
-                            <h4 className="text-lg text-gray-400 mb-4 font-medium">{edu.institution}</h4>
+                            <h4 className="text-lg text-secondary mb-6 font-medium uppercase tracking-widest">{edu.institution}</h4>
 
-                            <p className="text-slate-300 text-base leading-relaxed">
+                            <p className="text-secondary text-base leading-relaxed font-light">
                                 {edu.description}
                             </p>
                         </motion.div>

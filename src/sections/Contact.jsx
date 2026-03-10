@@ -61,39 +61,36 @@ const Contact = () => {
 
     return (
         <section id="contact" className="py-24 relative overflow-hidden">
-
             <div className="container mx-auto px-6 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
                     {/* Contact Info */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Let's work together.</h2>
+                        <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tighter leading-tight uppercase">Let's build <br/><span className="text-accent underline decoration-card-border underline-offset-8">something together</span>.</h2>
 
-                        <p className="text-slate-300 text-lg mb-12 leading-relaxed">
-                            I'm always open to discussing product design work or partnership opportunities.
-                        </p>
+                        
 
-                        <div className="space-y-8">
-                            <a href="mailto:pavishs127@gmail.com" className="flex items-center gap-6 group">
-                                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-300 border border-white/10 group-hover:border-accent">
-                                    <Mail size={24} />
+                        <div className="space-y-6">
+                            <a href={`mailto:${PROFILE_DATA.social.find(s => s.name === 'Email')?.url.replace('mailto:', '') || 'pavishs127@gmail.com'}`} className="flex items-center gap-6 group p-6 border border-white/10 bg-primary-light/40 backdrop-blur-lg hover:bg-white/5 transition-all duration-300 shadow-xl">
+                                <div className="text-accent">
+                                    <Mail size={32} />
                                 </div>
                                 <div>
-                                    <h3 className="text-white font-medium text-lg">Email Me</h3>
-                                    <p className="text-slate-300 group-hover:text-accent transition-colors">pavishs127@gmail.com</p>
+                                    <h3 className="text-white font-bold text-lg mb-1 uppercase tracking-wider">Email Me</h3>
+                                    <p className="text-secondary font-mono text-sm">pavishs127@gmail.com</p>
                                 </div>
                             </a>
 
-                            <div className="flex items-center gap-6">
-                                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-gray-400 border border-white/10">
-                                    <MapPin size={24} />
+                            <div className="flex items-center gap-6 p-6 border border-white/10 bg-primary-light/40 backdrop-blur-lg shadow-xl">
+                                <div className="text-secondary">
+                                    <MapPin size={32} />
                                 </div>
                                 <div>
-                                    <h3 className="text-white font-medium text-lg">Location</h3>
-                                    <p className="text-slate-300">Tamil Nadu, India</p>
+                                    <h3 className="text-white font-bold text-lg mb-1 uppercase tracking-wider">Location</h3>
+                                    <p className="text-secondary font-mono text-sm">Coimbatore, Tamil Nadu</p>
                                 </div>
                             </div>
                         </div>
@@ -104,11 +101,11 @@ const Contact = () => {
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="bg-primary-light border border-white/5 rounded-3xl p-8 md:p-10 shadow-2xl"
+                        className="bg-primary-light/40 backdrop-blur-xl border border-white/10 shadow-2xl p-8 md:p-12 relative"
                     >
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
-                                <label className="block text-sm font-medium text-slate-300 mb-2 ml-1">Name</label>
+                                <label className="block text-xs font-mono text-secondary mb-2 uppercase tracking-widest">Name</label>
                                 <input
                                     type="text"
                                     name="name"
@@ -116,13 +113,13 @@ const Contact = () => {
                                     onChange={handleChange}
                                     required
                                     disabled={isSubmitting}
-                                    className="w-full bg-primary border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                                    placeholder="Enter your name..."
+                                    className="w-full bg-primary/50 backdrop-blur-md border border-white/10 rounded-lg px-4 py-4 text-white placeholder-secondary/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-inner"
+                                    placeholder="Enter your name"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-slate-300 mb-2 ml-1">Email</label>
+                                <label className="block text-xs font-mono text-secondary mb-2 uppercase tracking-widest">Email</label>
                                 <input
                                     type="email"
                                     name="email"
@@ -130,39 +127,39 @@ const Contact = () => {
                                     onChange={handleChange}
                                     required
                                     disabled={isSubmitting}
-                                    className="w-full bg-primary border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                                    placeholder="Enter your email..."
+                                    className="w-full bg-primary/50 backdrop-blur-md border border-white/10 rounded-lg px-4 py-4 text-white placeholder-secondary/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-inner"
+                                    placeholder="Enter your email"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-slate-300 mb-2 ml-1">Message</label>
+                                <label className="block text-xs font-mono text-secondary mb-2 uppercase tracking-widest">Message</label>
                                 <textarea
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
                                     required
-                                    rows="4"
+                                    rows="5"
                                     disabled={isSubmitting}
-                                    className="w-full bg-primary border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-                                    placeholder="Tell me about your project..."
+                                    className="w-full bg-primary/50 backdrop-blur-md border border-white/10 rounded-lg px-4 py-4 text-white placeholder-secondary/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed shadow-inner"
+                                
                                 />
                             </div>
 
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className={`w-full bg-accent text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-accent/20 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-accent-dark'}`}
+                                className={`w-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg font-bold py-5 transition-all uppercase tracking-widest hover:bg-accent hover:border-accent flex items-center justify-center gap-3 rounded-lg ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                             >
                                 {isSubmitting ? (
                                     <>
-                                        Sending...
-                                        <Loader2 size={18} className="animate-spin" />
+                                        Sending Message...
+                                        <Loader2 size={20} className="animate-spin" />
                                     </>
                                 ) : (
                                     <>
                                         Send Message
-                                        <Send size={18} />
+                                        <Send size={20} />
                                     </>
                                 )}
                             </button>

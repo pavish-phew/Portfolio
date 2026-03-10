@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 const Layout = ({ children }) => {
     return (
-        <div className="flex flex-col min-h-screen bg-primary text-secondary font-sans selection:bg-accent selection:text-white">
+        <div className="flex flex-col min-h-screen text-secondary font-sans selection:bg-accent selection:text-white">
             <Navbar />
             <main className="flex-grow pt-16 relative">
                 <div className="fixed inset-0 bg-grid-white bg-[length:50px_50px] pointer-events-none opacity-20" />

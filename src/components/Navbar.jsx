@@ -23,9 +23,9 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-primary/80 backdrop-blur-md border-b border-white/5' : 'bg-transparent'}`} aria-label="Main Navigation">
+        <nav className={`fixed w-full z-50 transition-all duration-300 border-b ${scrolled ? 'bg-primary/90 backdrop-blur-md border-card-border' : 'bg-transparent border-transparent'} top-0 left-0`} aria-label="Main Navigation">
             <div className="container mx-auto px-6 h-16 flex justify-between items-center">
-                <a href="#" className="text-xl font-bold text-white tracking-tight flex items-center gap-2" aria-label="Back to top">
+                <a href="#" className="text-xl font-bold text-white tracking-widest uppercase flex items-center gap-1 font-mono" aria-label="Back to top">
                     <span className="text-accent" aria-hidden="true">&lt;</span>
                     Pavish
                     <span className="text-accent" aria-hidden="true">/&gt;</span>
@@ -37,10 +37,10 @@ const Navbar = () => {
                         <a
                             key={item.label}
                             href={item.href}
-                            className="text-sm font-medium text-slate-300 hover:text-white transition-colors relative group"
+                            className="text-sm font-medium text-secondary hover:text-white transition-colors relative group py-2 uppercase tracking-wide"
                         >
                             {item.label}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all group-hover:w-full" aria-hidden="true" />
+                            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-accent transition-all group-hover:w-full" aria-hidden="true" />
                         </a>
                     ))}
                 </div>
@@ -60,13 +60,13 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden bg-primary border-b border-white/5 absolute top-full left-0 w-full p-4">
+                <div className="md:hidden bg-primary/95 backdrop-blur-xl border-b border-card-border absolute top-full left-0 w-full p-4">
                     <div className="flex flex-col space-y-4">
                         {navItems.map((item) => (
                             <a
                                 key={item.label}
                                 href={item.href}
-                                className="text-secondary hover:text-white block text-center py-2 text-lg font-medium"
+                                className="text-secondary hover:text-white block text-left px-4 py-3 border-l-2 border-transparent hover:border-accent hover:bg-white/5 transition-all uppercase tracking-wide text-sm font-medium"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {item.label}
